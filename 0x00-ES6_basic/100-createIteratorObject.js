@@ -4,7 +4,7 @@ export default function createIteratorObject(report) {
     return a;
   }, []);
   let currIndex = 0;
-  const maxIndex = all.lengt;
+  const maxIndex = all.length;
   return {
     next() {
       if (currIndex < maxIndex) {
