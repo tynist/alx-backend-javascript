@@ -14,9 +14,6 @@ export default function createIteratorObject(report) {
       }
       return { value: null, done: true };
     },
-    [Symbol.iterator]: function() {
-      return this.next();
-    },
+    [Symbol.iterator]: () => this.next(),
   };
 }
-
