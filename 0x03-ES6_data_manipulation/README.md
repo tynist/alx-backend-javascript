@@ -1,21 +1,13 @@
-
-Curriculum
-Short Specializations
-Average: 92.93%
-You just released the advanced tasks of this project. Have fun!
 0x03. ES6 data manipulation
+===========================
+
 JavaScript
-ES6
- By: Johann Kerbrat, Engineering Manager at Uber Works
- Weight: 1
- Project will start Apr 24, 2023 6:00 AM, must end by Apr 26, 2023 6:00 AM
- Checker was released at Apr 24, 2023 6:00 PM
- An auto review will be launched at the deadline
+
+By: Johann Kerbrat, Engineering Manager at Uber Works
 
 
-Resources
-Read or watch:
-
+### Resources
+**Read or watch:**
 Array
 Typed Array
 Set Data Structure
