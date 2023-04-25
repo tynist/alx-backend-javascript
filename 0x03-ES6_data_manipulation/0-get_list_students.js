@@ -1,13 +1,13 @@
 export default function getListStudents() {
-  const createStudent = (id, firstName, location) => ({
+  const makeStudent = (id, firstName, location) => ({
     id,
     firstName,
     location,
   });
 
   return [
-    createStudent(1, 'Guillaume', 'San Francisco'),
-    createStudent(2, 'James', 'Columbia'),
-    createStudent(5, 'Serena', 'San Francisco'),
+    makeStudent(1, 'Guillaume', 'San Francisco'),
+    makeStudent(2, 'James', 'Columbia'),
+    makeStudent(5, 'Serena', 'San Francisco'),
   ];
 }
