@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   let results = '';
-  if (!startString || !startString.length) return result;
+  if (!startString || !startString.length) return results;
   for (const elm of set) {
     if (elm && elm.startsWith(startString)) {
       results += `${elm.slice(startString.length)}-`;
