@@ -10,5 +10,5 @@ namespace Subject {
     getAvailableTeacher(): string {
       return this.teacher.experienceTeachingC > 0 ? `Available Teacher: ${this.teacher.firstName}` : `No available teacher`;
     }
-  
-
+  }
+}
