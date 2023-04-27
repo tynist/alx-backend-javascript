@@ -1,4 +1,4 @@
-// Define an interface for Student that accepts four properties: firstName, lastName, age, and location
+// Define an interface for Student that accepts four properties
 interface Student {
   firstName: string,
   lastName: string,
