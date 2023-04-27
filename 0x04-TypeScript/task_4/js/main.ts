@@ -4,8 +4,8 @@ namespace Subject {
   export const react = React;
 
   export const teacher: Teacher = {
-    name: "test",
-    subject: "test",
-    yearsOfExperience: 11
+    "test",
+    "test",
+    11
   }
 }
