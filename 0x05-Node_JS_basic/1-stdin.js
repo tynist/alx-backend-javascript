@@ -7,7 +7,7 @@ process.stdin.on("data", () => {
 
   // Check if user input is not null & Display the user's name to STDOUT
   if (userInput !== null) {
-    process.stdout.write(`Your name is: ${userInput}\n`);
+    process.stdout.write(`Your name is: ${userInput}`);
   }
 });
 
