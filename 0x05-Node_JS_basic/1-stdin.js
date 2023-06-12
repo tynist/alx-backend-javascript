@@ -2,14 +2,16 @@
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 // Listen for the user input.
-process.stdin.on("data", (input) => {
-  const name = input; // Assign the user input to the "name" variable
+process.stdin.on("data", () => {
+  const userInput = rocess.stdin.read(); // Read user input from STDIN
 
-  // Display the user's name to STDOUT.
-  process.stdout.write(`Your name is: ${name}\n`);
+  // Check if user input is not null & Display the user's name to STDOUT
+  if (userInput !== null) {
+    process.stdout.write(`Your name is: ${name}\n`);
+  }
 });
 
-// Display closing message when user ends the program.
+// Display the closing message when user ends the program.
 process.stdin.on("end", () => {
   process.stdout.write("This important software is now closing\n");
 });
