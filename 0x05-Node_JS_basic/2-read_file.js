@@ -20,16 +20,14 @@ function countStudents(path) {
 
     // Iterate over the records and populate the field lists
     for (const record of records) {
-      if (record.trim() === '') {
-        continue; // Skip empty lines
-      }
+      if (record.trim() !== '') {
+        const [student, , , field] = record.split(',');
 
-      const [student, , , field] = record.split(',');
-
-      if (field === 'CS') {
-        csField.list.push(` ${student}`);
-      } else if (field === 'SWE') {
-        sweField.list.push(` ${student}`);
+        if (field === 'CS') {
+          csField.list.push(` ${student}`);
+        } else if (field === 'SWE') {
+          sweField.list.push(` ${student}`);
+        }
       }
     }
 
