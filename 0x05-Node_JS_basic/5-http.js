@@ -24,7 +24,7 @@ const app = http.createServer((req, res) => {
       .catch((error) => {
         // Display an error message
         res.statusCode = 500;
-        res.end(`Error: ${error.message}`);
+        res.end(`Error: ${error.message}\n`);
       });
   } else {
     // Display a 404 Not Found error
