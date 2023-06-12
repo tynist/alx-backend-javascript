@@ -11,7 +11,7 @@ const app = http.createServer((req, res) => {
     res.statusCode = 200;
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    // If the URL path is "/students", use countStudents function with the database file
+    // use countStudents function with the database file
     const databaseFile = process.argv[2];
 
     // Call the countStudents function to get the list of students
@@ -29,6 +29,7 @@ const app = http.createServer((req, res) => {
   } else {
     // Display a 404 Not Found error
     res.statusCode = 404;
+    res.write('Not Found');
     res.end('Not Found');
   }
 });
