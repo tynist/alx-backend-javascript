@@ -9,7 +9,8 @@ const app = http.createServer((req, res) => {
   if (req.url === '/') {
     // Display "Hello Holberton School!"
     res.statusCode = 200;
-    res.end('Hello Holberton School!');
+    res.write('Hello Holberton School!');
+    res.end();
   } else if (req.url === '/students') {
     // use countStudents function with the database file
     const databaseFile = process.argv[2];
@@ -19,12 +20,15 @@ const app = http.createServer((req, res) => {
       .then((result) => {
         // Display the result (list of students)
         res.statusCode = 200;
-        res.end(`This is the list of our students\n${result}`);
+        res.write('This is the list of our students\n');
+        res.write(result);
+        res.end();
       })
       .catch((error) => {
         // Display an error message
         res.statusCode = 500;
-        res.end(`${error.message}\n`);
+        res.write(`${error.message}\n`);
+        res.end();
       });
   }
 });
