@@ -1,51 +1,47 @@
 const fs = require('fs');
 
-function countStudents(path) {
+module.exports = function countStudents(path) {
   try {
-    // Read the database file synchronously
-    const data = fs.readFileSync(path, 'utf8');
+    const data = fs.readFileSync(path, 'utf-8');
+    const records = data.split('\n');
+    
+    // Initialize objects for each field
+    const csField = {
+      name: 'CS',
+      list: [],
+    };
 
-    // Split the data into lines
-    const lines = data.split('\n');
+    const sweField = {
+      name: 'SWE',
+      list: [],
+    };
 
-    // Initialize counters for each field
-    const fieldCount = {};
-    const fieldStudents = {};
+    const fields = [csField, sweField];
 
-    // Iterate over the lines and count the number of students in each field
-    lines.forEach((line) => {
-      // Skip empty lines
-      if (line.trim() === '') {
-        return;
+    // Iterate over the records and populate the field lists
+    for (const record of records) {
+      if (record.trim() === '') {
+        continue; // Skip empty lines
       }
-
-      const [, , , field] = line.split(',');
-
-      if (fieldCount[field] === undefined) {
-        fieldCount[field] = 1;
-        fieldStudents[field] = [];
-      } else {
-        fieldCount[field]++;
+      
+      const [student, , , field] = record.split(',');
+      
+      if (field === 'CS') {
+        csField.list.push(` ${student}`);
+      } else if (field === 'SWE') {
+        sweField.list.push(` ${student}`);
       }
+    }
 
-      const firstName = line.split(',')[0];
-      fieldStudents[field].push(firstName);
-    });
+    // Trim the first element of each list
+    fields[0].list[0] = fields[0].list[0].trim();
+    fields[1].list[0] = fields[1].list[0].trim();
 
-    // Log the total number of students
-    const totalStudents = Object.values(fieldCount).reduce((sum, count) => sum + count, 0);
-    console.log(`Number of students: ${totalStudents}`);
-
-	// Log the number of students in each field and the list of first names
-    Object.entries(fieldCount).forEach(([field, count]) => {
-      const studentList = fieldStudents[field].join(', ');
-      console.log(`${count}. List: ${studentList}`);
-    });
-
-  } catch (error) {
-    // Throw an error if the database is not available
+    // Display the number of students and the lists for each field
+    console.log(`Number of students: ${fields[0].list.length + fields[1].list.length}`);
+    console.log(`Number of students in ${fields[0].name}: ${fields[0].list.length}. List: ${fields[0].list}`);
+    console.log(`Number of students in ${fields[1].name}: ${fields[1].list.length}. List: ${fields[1].list}`);
+  } catch (err) {
     throw new Error('Cannot load the database');
   }
-}
-
-module.exports = countStudents;
+};
