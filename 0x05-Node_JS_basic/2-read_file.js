@@ -41,11 +41,10 @@ function countStudents(path) {
     console.log(`Number of students: ${fields[0].list.length + fields[1].list.length}`);
     console.log(`Number of students in ${fields[0].name}: ${fields[0].list.length}. List: ${fields[0].list}`);
     console.log(`Number of students in ${fields[1].name}: ${fields[1].list.length}. List: ${fields[1].list}`);
-
   } catch (err) {
     // Throw an error if the database is not available
     throw new Error('Cannot load the database');
   }
-};
+}
 
 module.exports = countStudents;
