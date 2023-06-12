@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-module.exports = function countStudents(path) {
+function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8');
     const records = data.split('\n');
-    
+
     // Initialize objects for each field
     const csField = {
       name: 'CS',
@@ -23,9 +23,9 @@ module.exports = function countStudents(path) {
       if (record.trim() === '') {
         continue; // Skip empty lines
       }
-      
+
       const [student, , , field] = record.split(',');
-      
+
       if (field === 'CS') {
         csField.list.push(` ${student}`);
       } else if (field === 'SWE') {
@@ -41,7 +41,9 @@ module.exports = function countStudents(path) {
     console.log(`Number of students: ${fields[0].list.length + fields[1].list.length}`);
     console.log(`Number of students in ${fields[0].name}: ${fields[0].list.length}. List: ${fields[0].list}`);
     console.log(`Number of students in ${fields[1].name}: ${fields[1].list.length}. List: ${fields[1].list}`);
+
   } catch (err) {
+    // Throw an error if the database is not available
     throw new Error('Cannot load the database');
   }
 };
