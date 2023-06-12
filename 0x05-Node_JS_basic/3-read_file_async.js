@@ -3,6 +3,7 @@ const fs = require('fs');
 function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
+      // Throw an error if the database is not available
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
@@ -26,6 +27,7 @@ function countStudents(path) {
           if (record.trim() !== '') {
             const [student, , , field] = record.split(',');
 
+            // Check the field & add the student to the corresponding list
             if (field === 'CS') {
               csField.list.push(` ${student}`);
             } else if (field === 'SWE') {
