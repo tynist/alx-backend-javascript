@@ -8,9 +8,9 @@ function countStudents(path) {
     // Split the data into lines
     const lines = data.split('\n');
 
-    // Initialize counters and lists for each field
+    // Initialize counters for each field
     const fieldCount = {};
-    const fieldList = {};
+    const fieldStudents = {};
 
     // Iterate over the lines and count the number of students in each field
     lines.forEach((line) => {
@@ -23,19 +23,19 @@ function countStudents(path) {
 
       if (fieldCount[field] === undefined) {
         fieldCount[field] = 1;
-        fieldList[field] = [];
+        fieldStudents[field] = [];
       } else {
         fieldCount[field]++;
       }
 
       const firstName = line.split(',')[0];
-      fieldList[field].push(firstName);
+      fieldStudents[field].push(firstName);
     });
 
-    // Log the number of students and list of first names for each field
+    // Log the number of students in each field and the list of first names
     Object.entries(fieldCount).forEach(([field, count]) => {
-      const list = fieldList[field].join(', ');
-      console.log(`Number of students in ${field}: ${count}. List: ${list}`);
+      const studentList = fieldStudents[field].join(', ');
+      console.log(`Number of students in ${field}: ${count}. List: ${studentList}`);
     });
 
     // Log the total number of students
