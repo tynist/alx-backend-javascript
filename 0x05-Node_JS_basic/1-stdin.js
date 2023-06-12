@@ -2,7 +2,7 @@
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 // Listen for the user input.
-process.stdin.on("data", () => {
+process.stdin.on('data', () => {
   const userInput = process.stdin.read(); // Read user input from STDIN
 
   // Check if user input is not null & Display the user's name to STDOUT
@@ -12,6 +12,6 @@ process.stdin.on("data", () => {
 });
 
 // Display the closing message when user ends the program.
-process.stdin.on("end", () => {
-  process.stdout.write("This important software is now closing\n");
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
