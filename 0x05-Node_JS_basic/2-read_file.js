@@ -32,15 +32,15 @@ function countStudents(path) {
       fieldStudents[field].push(firstName);
     });
 
-    // Log the number of students in each field and the list of first names
-    Object.entries(fieldCount).forEach(([field, count]) => {
-      const studentList = fieldStudents[field].join(', ');
-      console.log(`Number of students in ${field}: ${count}. List: ${studentList}`);
-    });
-
     // Log the total number of students
     const totalStudents = Object.values(fieldCount).reduce((sum, count) => sum + count, 0);
     console.log(`Number of students: ${totalStudents}`);
+
+	// Log the number of students in each field and the list of first names
+    Object.entries(fieldCount).forEach(([field, count]) => {
+      const studentList = fieldStudents[field].join(', ');
+      console.log(`${count}. List: ${studentList}`);
+    });
 
   } catch (error) {
     // Throw an error if the database is not available
