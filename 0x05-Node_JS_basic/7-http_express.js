@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
 
 // Define a route for the endpoint '/students'
 app.get('/students', (req, res) => {
-  countStudents(databaseFile)  // Call function to get d list of students
+  // Call function to get d list of students
+  countStudents(databaseFile)
     // Display the studentData (list of students)
     .then((studentData) => res.send(`This is the list of our students\n${studentData}`))
     // If error occurs, display error message
@@ -24,7 +25,7 @@ app.get('/students', (req, res) => {
     });
 });
 
-//Listen on port 1245
+// Listen on port 1245
 app.listen(port);
 
 // Export the app variable
