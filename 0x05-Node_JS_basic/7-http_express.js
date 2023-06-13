@@ -16,7 +16,7 @@ app.get('/students', (req, res) => {
     .catch(() => {
       // If error occurs during function call, display error message
       const resp = 'This is the list of our students\nCannot load the database';
-      res.status(500).send(resp;
+      res.status(500).send(resp);
     });
 });
 
