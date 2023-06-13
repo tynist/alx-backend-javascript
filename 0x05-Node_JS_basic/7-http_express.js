@@ -1,7 +1,13 @@
-const http = require('express');
+const express = require('express');
 const countStudents = require('./3-read_file_async');
 
 const app = express();
+
+// Define a route for the endpoint '/' URL
+app.get('/students', async (req, res) => {
+  // Handle the root URL
+  res.send('Hello Holberton School');
+});
 
 // Define a route for the endpoint '/students'
 app.get('/students', (req, res) => {
@@ -25,12 +31,6 @@ app.get('/students', (req, res) => {
       res.write('Cannot load the database');
       res.end();
     });
-});
-
-// Define a route for the endpoint '/' URL
-app.get('/students', async (req, res) => {
-  // Handle the root URL
-  res.send('Hello Holberton School');
 });
 
 // Listen on port 1245
