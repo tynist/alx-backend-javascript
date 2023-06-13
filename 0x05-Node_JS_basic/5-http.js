@@ -7,7 +7,7 @@ const app = http.createServer((req, res) => {
 
   // Handle requests based on the URL path
   if (req.url === '/') {
-    // Handlw the root URL
+    // Handle the root URL
     res.statusCode = 200;
     res.write('Hello Holberton School!');
     res.end();
