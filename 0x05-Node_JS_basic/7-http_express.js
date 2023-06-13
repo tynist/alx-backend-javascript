@@ -2,31 +2,22 @@ const express = require('express');
 const countStudents = require('./3-read_file_async');
 
 const app = express();
-const port = 1245;
-const databaseFile = process.argv[2];
 
-// Define a route for the endpoint '/' URL
-app.get('/', (req, res) => {
-  // Send the response
-  res.send('Hello Holberton School');
-});
-
-// Define a route for the endpoint '/students'
-app.get('/students', (req, res) => {
-  countStudents(databaseFile) // Call function to get d list of students
-    .then((studentData) => {
-      // Display the studentData (list of students)
-      const response = `This is the list of our students\n${studentData}`;
+app.get('/students', async (req, res) => {
+  countStudents(process.argv[2])
+    .then((message) => {
+      const response = `This is the list of our students\n${message}`;
       res.send(response);
     })
-    .catch((error) => {
-      const resp = 'This is the list of our students\nCannot load the database';
-      res.status(500).send(resp);
+    .catch((err) => {
+      res.send(`${err.message}`);
     });
 });
 
-// Listen on port 1245
-app.listen(port);
+app.get('/', (req, res) => {
+  res.send('Hello Holberton School!');
+});
 
-// Export the app variable
+app.listen(1245);
+
 module.exports = app;
