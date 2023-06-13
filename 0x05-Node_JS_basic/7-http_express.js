@@ -16,13 +16,12 @@ app.get('/students', (req, res) => {
   countStudents(databaseFile) // Call function to get d list of students
     .then((studentData) => {
       // Display the studentData (list of students)
-      const response = `This is the list of our students\n${studentData}`;
-      res.send(response);
+      const resp = `This is the list of our students\n${studentData}`;
+      res.send(resp);
     })
     .catch(() => {
       // If error occurs during function call, display error message
-      const resp = 'This is the list of our students\nCannot load the database';
-      res.status(500).send(resp);
+      res.status(500).send('Cannot load the database');
     });
 });
 
