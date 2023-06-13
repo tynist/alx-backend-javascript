@@ -14,10 +14,8 @@ app.get('/', (req, res) => {
 // Define a route for the endpoint '/students'
 app.get('/students', (req, res) => {
   countStudents(databaseFile)  // Call function to get d list of students
-    .then((studentData) => {
-      // Display the studentData (list of students)
-      res.send(`This is the list of our students\n${studentData}`);
-    })
+    // Display the studentData (list of students)
+    .then((studentData) => res.send(`This is the list of our students\n${studentData}`);
     // If error occurs, display error message
     .catch(() => {
       res.write('This is the list of our students\n');
