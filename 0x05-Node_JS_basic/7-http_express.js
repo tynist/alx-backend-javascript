@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.get('/students', (req, res) => {
   countStudents(databaseFile)  // Call function to get d list of students
     // Display the studentData (list of students)
-    .then((studentData) => res.send(`This is the list of our students\n${studentData}`);
+    .then((studentData) => res.send(`This is the list of our students\n${studentData}`));
     // If error occurs, display error message
     .catch(() => {
       res.write('This is the list of our students\n');
