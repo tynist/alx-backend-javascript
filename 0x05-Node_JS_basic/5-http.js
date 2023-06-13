@@ -26,7 +26,7 @@ const app = http.createServer((req, res) => {
         res.write(studentData);
         res.end();
       })
-      .catch(() => {
+      .catch((error) => {
         // If error occurs during function call, display error message
         res.statusCode = 500;
         res.write('This is the list of our students\n');
