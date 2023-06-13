@@ -6,7 +6,7 @@ const port = 1245;
 const databaseFile = process.argv[2];
 
 // Define a route for the endpoint '/students'
-app.get('/students', (req, res) => {
+app.get('/students', async (req, res) => {
   countStudents(databaseFile) // Call function to get d list of students
     .then((studentData) => {
       // Display the studentData (list of students)
