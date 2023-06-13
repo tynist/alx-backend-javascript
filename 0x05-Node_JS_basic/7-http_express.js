@@ -5,8 +5,14 @@ const app = express();
 const port = 1245;
 const databaseFile = process.argv[2];
 
+// Define a route for the endpoint '/' URL
+app.get('/', (req, res) => {
+  // Handle the root URL
+  res.send('Hello Holberton School');
+});
+
 // Define a route for the endpoint '/students'
-app.get('/students', async (req, res) => {
+app.get('/students', (req, res) => {
   countStudents(databaseFile) // Call function to get d list of students
     .then((studentData) => {
       // Display the studentData (list of students)
@@ -18,12 +24,6 @@ app.get('/students', async (req, res) => {
       const resp = 'This is the list of our students\nCannot load the database';
       res.status(500).send(resp);
     });
-});
-
-// Define a route for the endpoint '/' URL
-app.get('/', (req, res) => {
-  // Handle the root URL
-  res.send('Hello Holberton School');
 });
 
 // Listen on port 1245
