@@ -7,7 +7,7 @@ const databaseFile = process.argv[2];
 
 // Define a route for the endpoint '/' URL
 app.get('/', (req, res) => {
-  // Handle the root URL
+  // Send the response
   res.send('Hello Holberton School');
 });
 
@@ -16,12 +16,12 @@ app.get('/students', (req, res) => {
   countStudents(databaseFile) // Call function to get d list of students
     .then((studentData) => {
       // Display the studentData (list of students)
-      const resp = `This is the list of our students\n${studentData}`;
-      res.send(resp);
+      const response = `This is the list of our students\n${studentData}`;
+      res.send(response);
     })
-    .catch((err) => {
-      // If error occurs, display error message
-      res.send(`${err.message}`);
+    .catch(() => {
+      const resp = 'This is the list of our students\nCannot load the database';
+      res.status(500).send(resp);
     });
 });
 
