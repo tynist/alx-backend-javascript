@@ -7,29 +7,36 @@ const app = http.createServer((req, res) => {
 
   // Handle requests based on the URL path
   if (req.url === '/') {
-    // Display "Hello Holberton School!"
+    // Handlw the root URL
     res.statusCode = 200;
     res.write('Hello Holberton School!');
     res.end();
   } else if (req.url === '/students') {
-    // use countStudents function with the database file
+    // Handle the /students URL
+
+    // Get the database file from command-line arguments
     const databaseFile = process.argv[2];
 
     // Call the countStudents function to get the list of students
     countStudents(databaseFile)
-      .then((result) => {
-        // Display the result (list of students)
+      .then((studentData) => {
+        // Display the studentData (list of students)
         res.statusCode = 200;
         res.write('This is the list of our students\n');
-        res.write(result);
+        res.write(studentData);
         res.end();
       })
-      .catch((error) => {
-        // Display an error message
+      .catch(() => {
+        // If error occurs during function call, display error message
         res.statusCode = 500;
-        res.write(`${error.message}\n`);
+        res.write('This is the list of our students\n');
+        res.write('Cannot load the database');
         res.end();
       });
+  } else {
+    // Handle all other URLs
+    res.statusCode = 404;
+    res.end('Not Found');
   }
 });
 
