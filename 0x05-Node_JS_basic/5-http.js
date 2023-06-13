@@ -30,7 +30,7 @@ const app = http.createServer((req, res) => {
         // If error occurs during function call, display error message
         res.statusCode = 500;
         res.write('This is the list of our students\n');
-        res.write('Cannot load the database');
+        res.write(`Error: ${error.message}`);
         res.end();
       });
   } else {
