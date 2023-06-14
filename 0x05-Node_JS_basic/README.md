@@ -5,7 +5,7 @@ Back-end, JavaScript, ES6, NodeJS, ExpressJS
 
 -   By: Johann Kerbrat, Engineering Manager at Uber Works
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/1/82692897e15d9f03256f.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220809%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220809T195501Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=43b4a8b5bdaf5cb33711d5acc543430bc22f2a0a5354406c81d145a57b6abe44)
+<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/1/82692897e15d9f03256f.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230614%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230614T105133Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=291b2983f37ddec510fb882a6a7db01943ebd2ed55d9118e1df4c91f30e9c05d" alt="" loading="lazy" style="">
 
 
 Resources
