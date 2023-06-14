@@ -1,37 +1,38 @@
-import { readDatabase } from '../utils';
+import readDatabase from '../utils.js';
 
-class StudentsController {
-  static getAllStudents(req, res) {
-    readDatabase('database.csv')
+export default class StudentsController {
+  static getAllStudents(request, response) {
+    readDatabase('./database.csv')
       .then((fields) => {
-        let response = 'This is the list of our students\n';
-        Object.entries(fields).forEach(([field, students]) => {
-          response += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
+        let studentsResponse = 'This is the list of our students\n';
+        fields.forEach((field) => {
+          studentsResponse += `Number of students in ${field.name}: ${field.students.length}. List: ${field.students}\n`;
         });
-        res.status(200).send(response);
+        response.status(200).send(studentsResponse);
       })
       .catch(() => {
-        res.status(500).send('Cannot load the database');
+        response.status(500).send('Cannot load the database');
       });
   }
 
-  static getAllStudentsByMajor(req, res) {
-    const { major } = req.params;
+  static getAllStudentsByMajor(request, response) {
+    const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
-      res.status(500).send('Major parameter must be CS or SWE');
+      response.status(500).send('Major parameter must be CS or SWE');
       return;
     }
 
-    readDatabase('database.csv')
+    readDatabase('./database.csv')
       .then((fields) => {
-        const students = fields[major] || [];
-        const response = `List: ${students.join(', ')}`;
-        res.status(200).send(response);
+        const field = fields.find((f) => f.name === major);
+        if (!field) {
+          response.status(500).send('Cannot load the database');
+          return;
+        }
+        response.status(200).send(`List: ${field.students}`);
       })
       .catch(() => {
-        res.status(500).send('Cannot load the database');
+        response.status(500).send('Cannot load the database');
       });
   }
 }
-
-export default StudentsController;
