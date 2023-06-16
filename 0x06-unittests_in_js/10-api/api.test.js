@@ -1,42 +1,60 @@
-const request = require('supertest');
-const { expect } = require('chai');
-const app = require('./api');
+const request = require('request'); // Import the request module
+const { expect } = require('chai'); // Import the expect function from the chai module
 
-describe('API endpoints', () => {
+const baseUrl = 'http://localhost:7865'; // Define the base URL for API requests
+
+describe('API', () => {
+  // Test suite for the /cart/:id endpoint
+  describe('GET /cart/:id', () => {
+    // Test for correct status code when :id is a number
+    it('responds with status 200 when :id is a number', (done) => {
+      request.get(`${baseUrl}/cart/12`, (error, response, body) => {
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+
+    // Test for correct status code when :id is not a number
+    it('responds with status 404 when :id is not a number', (done) => {
+      request.get(`${baseUrl}/cart/hello`, (error, response, body) => {
+        expect(response.statusCode).to.equal(404);
+        done();
+      });
+    });
+  });
+
   // Test suite for the /available_payments endpoint
   describe('GET /available_payments', () => {
-    it('returns the available payment methods', (done) => {
-      request(app)
-        .get('/available_payments')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end((err, res) => {
-          if (err) return done(err);
-          expect(res.body).to.deep.equal({
-            payment_methods: {
-              credit_cards: true,
-              paypal: false
-            }
-          });
-          done();
+    // Test for correct status code and result
+    it('responds with status 200 and correct result', (done) => {
+      request.get(`${baseUrl}/available_payments`, (error, response, body) => {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({
+          payment_methods: {
+            credit_cards: true,
+            paypal: false
+          }
         });
+        done();
+      });
     });
   });
 
   // Test suite for the /login endpoint
   describe('POST /login', () => {
-    it('returns a welcome message with the username', (done) => {
-      const username = 'Betty';
-      request(app)
-        .post('/login')
-        .send({ userName: username })
-        .expect('Content-Type', /text/)
-        .expect(200)
-        .end((err, res) => {
-          if (err) return done(err);
-          expect(res.text).to.equal(`Welcome ${username}`);
-          done();
-        });
+    // Test for correct status code and result
+    it('responds with status 200 and welcome message', (done) => {
+      const options = {
+        url: `${baseUrl}/login`,
+        method: 'POST',
+        json: true,
+        body: { userName: 'Betty' }
+      };
+      request(options, (error, response, body) => {
+        expect(response.statusCode).to.equal(200);
+        expect(body).to.equal('Welcome Betty');
+        done();
+      });
     });
   });
 });
