@@ -1,8 +1,15 @@
 {
   "name": "task_0",
   "version": "1.0.0",
+<<<<<<< HEAD
   "scripts": {
     "test": "mocha \"0-calcul.test.js\""
+=======
+  "description": "unittests",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+>>>>>>> cd1c71f0105934a3c22f6ad8374e390837e850f3
   },
   "devDependencies": {
     "mocha": "^10.0.0"
