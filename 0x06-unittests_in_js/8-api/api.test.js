@@ -11,7 +11,7 @@ describe('Index page', () => {
     });
   });
 
-  // Checks result is 'Welcome to the payment system'
+  // Checks result is: display message
   it('Correct result?', (done) => {
     request.get('http://localhost:7865', (error, response, body) => {
       expect(body).toEqual('Welcome to the payment system');
