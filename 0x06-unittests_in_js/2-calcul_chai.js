@@ -14,7 +14,7 @@ function calculateNumber(type, a, b) {
     // Check if the second number is zero
     if (roundedB === 0) {
       // Return 'Error' if attempting to divide by zero
-      return 'Error: Division by zero';
+      return 'Error';
     }
     // Return the quotient of the rounded numbers
     return roundedA / roundedB;
