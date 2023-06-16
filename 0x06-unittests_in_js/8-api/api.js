@@ -10,3 +10,5 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
   res.send('Welcome to the payment system');
 });
+
+module.exports = app;
