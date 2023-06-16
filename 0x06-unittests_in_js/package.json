@@ -15,7 +15,7 @@
     "express",
     "mocha"
   ],
-  "author": "Tynist",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "chai-http": "^4.3.0",
