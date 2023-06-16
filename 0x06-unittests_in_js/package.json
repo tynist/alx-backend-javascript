@@ -1,15 +1,10 @@
 {
-  "name": "0x06-unittests_in_js",
+  "name": "task_0",
   "version": "1.0.0",
-  "description": "the readme file",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"0-calcul.test.js\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.0.0"
   }
 }
