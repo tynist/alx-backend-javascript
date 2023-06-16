@@ -6,7 +6,8 @@ describe('Index page', () => {
   // Checks status code is 200 OK
   it('Correct status code?', (done) => {
     request.get('http://localhost:7865', (error, response) => {
-      expect(response.statusCode).toEqual(200);
+      // The response status =200 (OK)
+      expect(response.statusCode).to.equal(200);
       done();
     });
   });
@@ -14,7 +15,8 @@ describe('Index page', () => {
   // Checks result is: display message
   it('Correct result?', (done) => {
     request.get('http://localhost:7865', (error, response, body) => {
-      expect(body).toEqual('Welcome to the payment system');
+      // The response body to be displayed
+      expect(body).to.equal('Welcome to the payment system');
       done();
     });
   });
@@ -27,4 +29,3 @@ describe('Index page', () => {
     });
   });
 });
-
