@@ -4,32 +4,32 @@ const calculateNumber = require('./1-calcul');
 
 
 describe('calculateNumber', () => {
-  it('should return the sum of two rounded numbers for SUM operation', () => {
+  it('returns the sum of two rounded numbers for SUM operation', () => {
     // Test case 1: SUM operation
     assert.strictEqual(calculateNumber('SUM', 1.4, 4.5), 6);
   });
 
-  it('should return the subtraction result for SUBTRACT operation', () => {
+  it('returns the subtraction result for SUBTRACT operation', () => {
     // Test case 2: SUBTRACT operation
     assert.strictEqual(calculateNumber('SUBTRACT', 1.4, 4.5), -4);
   });
 
-  it('should return the division result for DIVIDE operation', () => {
+  it('returns the division result for DIVIDE operation', () => {
     // Test case 3: DIVIDE operation
     assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
   });
 
-  it('should return "Error" for division by zero in DIVIDE operation', () => {
+  it('returns "Error" for division by zero in DIVIDE operation', () => {
     // Test case 4: DIVIDE operation with division by zero
     assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
   });
 
-  it('should return "Error" for invalid type in operation', () => {
+  it('returns "Error" for invalid type in operation', () => {
     // Test case 5: Checking if operation is correct
     assert.strictEqual(calculateNumber(5, 1, 4), 'Error');
   });
 
-  it('should return "Error" for unknown operation type', () => {
+  it('returns "Error" for unknown operation type', () => {
     // Test case 6: Checking correct type for operation
     assert.strictEqual(calculateNumber('plus', 1, 4), 'Error');
   });
